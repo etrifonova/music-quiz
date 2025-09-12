@@ -1,0 +1,163 @@
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        color: #fff;
+    }
+
+    .container {
+        background: rgba(0, 0, 0, 0.8);
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        width: 90%;
+        max-width: 600px;
+        padding: 30px;
+        text-align: center;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+        color: #fdbb2d;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .screen {
+        display: none;
+        animation: fadeIn 0.5s ease;
+    }
+
+    #start-screen {
+        display: block;
+    }
+
+    .btn {
+        background: #fdbb2d;
+        color: #1a2a6c;
+        border: none;
+        padding: 12px 30px;
+        margin: 15px 0;
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn:hover {
+        background: #ffcc44;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn:active {
+        transform: translateY(0);
+    }
+
+    .audio-player {
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .progress-container {
+        background: rgba(255, 255, 255, 0.2);
+        height: 8px;
+        border-radius: 4px;
+        margin: 15px 0;
+        overflow: hidden;
+    }
+
+    .progress-bar {
+        height: 100%;
+        width: 0%;
+        background: #fdbb2d;
+        border-radius: 4px;
+        transition: width 0.1s linear;
+    }
+
+    .timer {
+        font-size: 18px;
+        margin: 10px 0;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px 15px;
+        margin: 15px 0;
+        border: 2px solid #fdbb2d;
+        border-radius: 50px;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    input:focus {
+        outline: none;
+        border-color: #ffcc44;
+        box-shadow: 0 0 10px rgba(255, 204, 68, 0.5);
+    }
+
+    .score-display {
+        font-size: 24px;
+        margin: 20px 0;
+        color: #fdbb2d;
+    }
+
+    .feedback {
+        font-size: 22px;
+        margin: 20px 0;
+        min-height: 30px;
+    }
+
+    .correct {
+        color: #4caf50;
+    }
+
+    .incorrect {
+        color: #f44336;
+    }
+
+    .answer {
+        font-weight: bold;
+        color: #fdbb2d;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    .attempts {
+        margin: 10px 0;
+        font-size: 18px;
+    }
+
+    .hint {
+        color: #fdbb2d;
+        margin: 10px 0;
+        font-style: italic;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    .playback-status {
+        margin: 10px 0;
+        font-size: 16px;
+        color: #fdbb2d;
+    }

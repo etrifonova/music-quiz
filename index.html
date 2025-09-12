@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Artist Quiz</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Start Screen -->
+      <div id="start-screen" class="screen">
+        <h1>Музыкальный квиз</h1>
+        <p>
+          Угадайте исполнителя по отрывку. Если исполнителей несколько, пишите
+          их подряд, без знаков препинания и союзов (пример: Madonna Justin
+          Timberlake)
+        </p>
+        <button id="start-btn" class="btn">Начать</button>
+      </div>
+
+      <!-- Game Screen -->
+      <div id="game-screen" class="screen">
+        <h1>Кто исполняет?</h1>
+        <div class="timer">
+          Осталось времени: <span id="time">10</span> секунд
+        </div>
+        <div class="progress-container">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <audio id="audio-player" class="audio-player" controls></audio>
+        <!-- <div class="playback-status" id="playback-status">
+          Audio is playing...
+        </div> -->
+        <input
+          type="text"
+          id="answer-input"
+          placeholder="Введите исполнителя..."
+          autocomplete="off"
+        />
+        <button id="submit-btn" class="btn">Проверить</button>
+        <p class="hint" id="hint-btn">Нужна подсказка</p>
+        <p class="attempts">Осталось попыток: <span id="attempts">3</span></p>
+      </div>
+
+      <!-- Feedback Screen -->
+      <div id="feedback-screen" class="screen">
+        <h1 id="feedback-title"></h1>
+        <p class="feedback" id="feedback-message"></p>
+        <p>Исполнитель: <span id="correct-answer" class="answer"></span></p>
+        <div class="score-display">Счёт: <span id="score">0</span></div>
+        <button id="next-btn" class="btn">Следующая песня</button>
+      </div>
+
+      <!-- Results Screen -->
+      <div id="results-screen" class="screen">
+        <h1>Конец!</h1>
+        <p class="score-display">
+          Итоговый счёт: <span id="final-score">0</span>/<span
+            id="total-questions"
+            >0</span
+          >
+        </p>
+        <button id="restart-btn" class="btn">Сыграть еще раз</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
