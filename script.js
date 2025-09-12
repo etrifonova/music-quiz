@@ -24,6 +24,16 @@ const quizData = [
     artist: "The Beloved",
     hint: "Всеми любимый",
   },
+  {
+    audio: "./audio/06.mp3",
+    artist: "Patricia Kaas",
+    hint: "Фамилия почти как у змеи из \"Книги джунглей\"",
+  },
+  {
+    audio: "./audio/07.mp3",
+    artist: "Johhny Hates Jazz",
+    hint: "Тёзка Леннона не любит определённый жанр музыки",
+  },
 ];
 
 // DOM elements
