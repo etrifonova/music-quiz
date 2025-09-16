@@ -1,40 +1,4 @@
-const quizData = [
-  {
-    audio: "./audio/01.mp3",
-    artist: "Стас Михайлов",
-    hint: "Без тебя, без тебя",
-  },
-  {
-    audio: "./audio/02.mp3",
-    artist: "Tito & Tarantula",
-    hint: "Один из них как паук",
-  },
-  {
-    audio: "./audio/03.mp3",
-    artist: "David Guetta Kid Cudi",
-    hint: "Самый популярный DJ и непонятный чувак",
-  },
-  {
-    audio: "./audio/04.mp3",
-    artist: "Santana Rob Thomas",
-    hint: "Как сатана и еще один чувак",
-  },
-  {
-    audio: "./audio/05.mp3",
-    artist: "The Beloved",
-    hint: "Всеми любимый",
-  },
-  {
-    audio: "./audio/06.mp3",
-    artist: "Patricia Kaas",
-    hint: "Фамилия почти как у змеи из \"Книги джунглей\"",
-  },
-  {
-    audio: "./audio/07.mp3",
-    artist: "Johhny Hates Jazz",
-    hint: "Тёзка Леннона не любит определённый жанр музыки",
-  },
-];
+import { quizData } from './songs.js'
 
 // DOM elements
 const startScreen = document.getElementById("start-screen");
@@ -57,6 +21,7 @@ const totalQuestionsDisplay = document.getElementById("total-questions");
 const feedbackTitle = document.getElementById("feedback-title");
 const feedbackMessage = document.getElementById("feedback-message");
 const correctAnswerDisplay = document.getElementById("correct-answer");
+const correctAnswerSongDisplay = document.getElementById("correct-song");
 const attemptsDisplay = document.getElementById("attempts");
 const hintBtn = document.getElementById("hint-btn");
 const playbackStatus = document.getElementById("playback-status");
@@ -200,7 +165,7 @@ function checkAnswer() {
     audioPlayer.pause(); // Stop playback
     score++;
     scoreDisplay.textContent = score;
-    showFeedback(true, "Верно!");
+    showFeedback(true);
   } else {
     attemptsLeft--;
     attemptsDisplay.textContent = attemptsLeft;
@@ -229,6 +194,7 @@ function showFeedback(isCorrect, message) {
   feedbackMessage.textContent = message;
   feedbackMessage.className = isCorrect ? "correct" : "incorrect";
   correctAnswerDisplay.textContent = randomizedQuestions[currentQuestionIndex].artist;
+  correctAnswerSongDisplay.textContent = randomizedQuestions[currentQuestionIndex].song;
 }
 
 // Show hint
