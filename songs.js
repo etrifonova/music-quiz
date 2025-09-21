@@ -65,4 +65,43 @@ export const quizData = [
     song: "Take Me to Church",
     hint: "H _ _ _ _ _",
   },
+  {
+    audio: "./audio/12.mp3",
+    artist: "No Mercy",
+    song: "Where Do You Go",
+    hint: "Никакой пощады!",
+  },
+  {
+    audio: "./audio/13.mp3",
+    artist: "Da Buzz",
+    song: "Wonder Where You Are",
+    hint: "2 слова (2 буквы и 4 буквы): D _  B _ _ _",
+  },
+  {
+    audio: "./audio/14.mp3",
+    artist: "Danzel",
+    song: "Pump It Up",
+    hint: "6 букв: D _ _ _ _ _",
+  },
+  {
+    audio: "./audio/15.mp3",
+    artist: "Cascada",
+    song: "Every Time We Touch",
+    hint: "7 букв: C _ _ _ _ _ _",
+  },
+
+  {
+    audio: "./audio/16.mp3",
+    artist: "Yves Larock",
+    song: "«Rise Up» — песня швейцарского диджея Ива Ларока с его одноимённого студийного альбома.",
+    hint: "2 слова (4 буквы и 6 букв): Y _ _ _  L _ _ _ _ _",
+  },
+  {
+    audio: "./audio/17.mp3",
+    artist: "Alex Clare",
+    song: "«Too Close» — это песня британского исполнителя Алекса Клэра. Трек был впервые выпущен в Великобритании 15 апреля 2011 года в качестве второго сингла с его дебютного студийного альбома The Lateness of the Hour (2011).",
+    hint: "2 слова (4 буквы и 5 букв): A _ _ _  C _ _ _ _",
+  },
+
+  
 ];

@@ -51,23 +51,49 @@ function initGame() {
   });
 }
 
-// Function to randomize the questions
+// Function to randomize and select 10 questions
 function randomizeQuestions() {
   // Create a copy of the quizData array
-  randomizedQuestions = [...quizData];
+  const allQuestions = [...quizData];
   
   // Fisher-Yates shuffle algorithm
-  for (let i = randomizedQuestions.length - 1; i > 0; i--) {
+  for (let i = allQuestions.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [randomizedQuestions[i], randomizedQuestions[j]] = [randomizedQuestions[j], randomizedQuestions[i]];
+    [allQuestions[i], allQuestions[j]] = [allQuestions[j], allQuestions[i]];
   }
+  
+  // Select first 10 questions (or all if there are fewer than 10)
+  randomizedQuestions = allQuestions.slice(0, 10);
   
   return randomizedQuestions;
 }
 
+// Alternative implementation using a while loop
+/*
+function randomizeQuestions() {
+  // Create a copy of the quizData array
+  const allQuestions = [...quizData];
+  randomizedQuestions = [];
+  
+  // Select 10 random questions without duplicates
+  while (randomizedQuestions.length < 10 && allQuestions.length > 0) {
+    // Get a random index from the remaining questions
+    const randomIndex = Math.floor(Math.random() * allQuestions.length);
+    
+    // Add the randomly selected question to our array
+    randomizedQuestions.push(allQuestions[randomIndex]);
+    
+    // Remove the selected question from the pool
+    allQuestions.splice(randomIndex, 1);
+  }
+  
+  return randomizedQuestions;
+}
+*/
+
 // Start the game
 function startGame() {
-  // Randomize the questions before starting
+  // Randomize and select 10 questions before starting
   randomizeQuestions();
   currentQuestionIndex = 0;
   score = 0;
@@ -119,8 +145,8 @@ function loadQuestion() {
   // Add event listener to get audio duration once it's loaded
   audioPlayer.addEventListener('loadedmetadata', function() {
     if (audioPlayer.duration !== Infinity && audioPlayer.duration > 0) {
-      // Set total time to audio duration + 10 seconds
-      totalTime = Math.floor(audioPlayer.duration) + 10;
+      // Set total time to audio duration + 20 seconds
+      totalTime = Math.floor(audioPlayer.duration) + 20;
       timeLeft = totalTime;
       timeDisplay.textContent = timeLeft;
     }
