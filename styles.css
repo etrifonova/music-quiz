@@ -6,7 +6,7 @@
     }
 
     body {
-        background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+        background: linear-gradient(135deg, #0D5051, #93FD70);
         min-height: 100vh;
         display: flex;
         justify-content: center;
@@ -27,7 +27,7 @@
 
     h1 {
         margin-bottom: 20px;
-        color: #fdbb2d;
+        color: #93FD70;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
@@ -45,7 +45,7 @@
     }
 
     .btn {
-        background: #fdbb2d;
+        background: #93FD70;
         color: #1a2a6c;
         border: none;
         padding: 12px 30px;
@@ -59,7 +59,7 @@
     }
 
     .btn:hover {
-        background: #ffcc44;
+        background: #e5f0e1;
         transform: translateY(-3px);
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
     }
@@ -84,7 +84,7 @@
     .progress-bar {
         height: 100%;
         width: 0%;
-        background: #fdbb2d;
+        background: #93FD70;
         border-radius: 4px;
         transition: width 0.1s linear;
     }
@@ -98,7 +98,7 @@
         width: 100%;
         padding: 12px 15px;
         margin: 15px 0;
-        border: 2px solid #fdbb2d;
+        border: 2px solid #93FD70;
         border-radius: 50px;
         background: rgba(255, 255, 255, 0.1);
         color: white;
@@ -108,14 +108,14 @@
 
     input:focus {
         outline: none;
-        border-color: #ffcc44;
+        border-color: #e5f0e1;
         box-shadow: 0 0 10px rgba(255, 204, 68, 0.5);
     }
 
     .score-display {
         font-size: 24px;
         margin: 20px 0;
-        color: #fdbb2d;
+        color: #93FD70;
     }
 
     .feedback {
@@ -134,7 +134,7 @@
 
     .answer {
         font-weight: bold;
-        color: #fdbb2d;
+        color: #93FD70;
     }
 
     @keyframes fadeIn {
@@ -153,7 +153,7 @@
     }
 
     .hint {
-        color: #fdbb2d;
+        color: #93FD70;
         margin: 10px 0;
         font-style: italic;
         cursor: pointer;
@@ -163,5 +163,5 @@
     .playback-status {
         margin: 10px 0;
         font-size: 16px;
-        color: #fdbb2d;
+        color: #93FD70;
     }
