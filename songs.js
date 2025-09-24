@@ -53,12 +53,12 @@ export const quizData = [
     song: "Sous Le Ciel De Paris",
     hint: "Первая буква имени: Z",
   },
-  {
-    audio: "./audio/10.mp3",
-    artist: "Rag'n'Bone Man",
-    song: "Human",
-    hint: "R _ _'_'B _ _ _ M _ _",
-  },
+  // {
+  //   audio: "./audio/10.mp3",
+  //   artist: "Rag'n'Bone Man",
+  //   song: "Human",
+  //   hint: "R _ _'_'B _ _ _ M _ _",
+  // },
   {
     audio: "./audio/11.mp3",
     artist: "Hozier",
@@ -119,6 +119,18 @@ export const quizData = [
     artist: "Dotan",
     song: "«Numb» — песня голландско-израильского исполнителя Дотана, выпущенная 29 мая 2019 года в качестве ведущего сингла с одноимённого мини-альбома на лейбле «7 Layers».",
     hint: "1 слово (5 букв): D _ _ _ _",
+  },
+  {
+    audio: "./audio/21.mp3",
+    artist: "Бонд с кнопкой",
+    song: "На кухни",
+    hint: "3 слова (4 буквы, 1 буква, 7 букв): Б _ _ _  с  к _ _ _ _ _ _",
+  },
+  {
+    audio: "./audio/22.mp3",
+    artist: "Elman Trida",
+    song: "С неба",
+    hint: "Исполнитель (5 букв: E _ _ _ _) и исполнительница (5 букв: T _ _ _ _)",
   },
 
   
