@@ -181,6 +181,13 @@ export const quizData = [
     hint: "2 слова (2 букв и 4 буквы): A _   Y _ _ _",
   },
 
+  {
+    audio: "./audio/31.mp3",
+    artist: "Люся Чеботина",
+    song: "Каблук",
+    hint: "Солнце Монако",
+  },
+
   
 
   
