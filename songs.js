@@ -11,18 +11,18 @@ export const quizData = [
   //   song: "After Dark",
   //   hint: "Один из них как паук",
   // },
-  {
-    audio: "./audio/03.mp3",
-    artist: "David Guetta Kid Cudi",
-    song: "Memories",
-    hint: "Самый популярный DJ и непонятный чувак",
-  },
-  {
-    audio: "./audio/04.mp3",
-    artist: "Santana Rob Thomas",
-    song: "Smooth",
-    hint: "Как сатана и еще один чувак",
-  },
+  // {
+  //   audio: "./audio/03.mp3",
+  //   artist: "David Guetta Kid Cudi",
+  //   song: "Memories",
+  //   hint: "Самый популярный DJ и непонятный чувак",
+  // },
+  // {
+  //   audio: "./audio/04.mp3",
+  //   artist: "Santana Rob Thomas",
+  //   song: "Smooth",
+  //   hint: "Как сатана и еще один чувак",
+  // },
   {
     audio: "./audio/05.mp3",
     artist: "The Beloved",
@@ -35,12 +35,12 @@ export const quizData = [
     song: "il me dit que je suis belle",
     hint: "Фамилия почти как у змеи из \"Книги джунглей\"",
   },
-  {
-    audio: "./audio/07.mp3",
-    artist: "Johnny Hates Jazz",
-    song: "Shattered Dreams",
-    hint: "Тёзка Леннона не любит определённый жанр музыки",
-  },
+  // {
+  //   audio: "./audio/07.mp3",
+  //   artist: "Johnny Hates Jazz",
+  //   song: "Shattered Dreams",
+  //   hint: "Тёзка Леннона не любит определённый жанр музыки",
+  // },
   {
     audio: "./audio/08.mp3",
     artist: "Lara Fabian",
@@ -234,12 +234,24 @@ export const quizData = [
     song: "«As It Was» — сольный сингл британского певца и актёра Гарри Стайлза, вышедший 1 апреля 2022 года в качестве ведущего сингла с предстоящего третьего сольного альбома Harry’s House.",
     hint: "H _ _ _ _  S _ _ _ _ _",
   },
-
-
-
-  
-
-  
+  {
+    audio: "./audio/40.mp3",
+    artist: "Pitbull",
+    song: "«Give Me Everything» — песня американского рэпера Питбуля, выпущенная 18 марта 2011 года в качестве второго сингла с его шестого студийного альбома Planet Pit (2011). В песне приняли участие R&B певец Ни-Йо, американская певица Найер и нидерландский диджей Афроджек, который был также продюсером песни и соавтором вместе с Мэттом Говархом, Питбулем и Ни-Йо. Rolling Stone описал её так: «клубная поп-песня с печальным припевом Ne-Yo»",
+    hint: "P _ _ _ _ _ _",
+  },
+  {
+    audio: "./audio/41.mp3",
+    artist: "Emilia",
+    song: "«Big Big World» — это песня шведской певицы Эмилии. Она была выпущена 17 сентября 1998 года лейблами Rodeo и Universal в качестве ведущего сингла с альбома «Big Big World» и была написана Эмилией и Лассе Андерсоном.",
+    hint: "E _ _ _ _ _",
+  },
+  {
+    audio: "./audio/42.mp3",
+    artist: "Asking Alexandria",
+    song: "«Find Myself» — песня британской рок-группы Asking Alexandria с седьмого студийного альбома See What’s on the Inside ",
+    hint: "A _ _ _ _ _  A _ _ _ _ _ _ _ _ _",
+  },
 
   
   
