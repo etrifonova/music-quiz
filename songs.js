@@ -249,8 +249,20 @@ export const quizData = [
   {
     audio: "./audio/42.mp3",
     artist: "Asking Alexandria",
-    song: "«Find Myself» — песня британской рок-группы Asking Alexandria с седьмого студийного альбома See What’s on the Inside ",
+    song: "«Find Myself» — песня британской рок-группы Asking Alexandria с седьмого студийного альбома See What’s on the Inside.",
     hint: "A _ _ _ _ _  A _ _ _ _ _ _ _ _ _",
+  },
+  {
+    audio: "./audio/43.mp3",
+    artist: "Sir Mix-a-Lot",
+    song: "«Baby Got Back» — это песня, написанная, спродюсированная при участии автора и записанная американским рэпером Sir Mix-a-Lot.",
+    hint: "S _ _  M _ _ - _ - _ _ _",
+  },
+  {
+    audio: "./audio/44.mp3",
+    artist: "Morandi",
+    song: "«Summer in December» — песня румынской группой Morandi совместно с певицей INNA, вышедшая на альбоме Body and the Sun (2015).",
+    hint: "M _ _ _ _ _ _",
   },
 
   
