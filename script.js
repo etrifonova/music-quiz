@@ -6,7 +6,7 @@ const gameScreen = document.getElementById("game-screen");
 const feedbackScreen = document.getElementById("feedback-screen");
 const resultsScreen = document.getElementById("results-screen");
 
-const startBtn = document.getElementById("start-btn");
+let startBtn = document.getElementById("start-btn");
 const submitBtn = document.getElementById("submit-btn");
 const nextBtn = document.getElementById("next-btn");
 const restartBtn = document.getElementById("restart-btn");
@@ -36,10 +36,17 @@ let attemptsLeft = 3;
 let isPlaying = false;
 let audioFinished = false;
 let randomizedQuestions = [];
+let usedSongs = []; // Track used songs across games
 
-// Initialize the game
-function initGame() {
-  startBtn.addEventListener("click", startGame);
+// Function to initialize event listeners
+function initEventListeners() {
+  // Re-get the start button element since it was recreated
+  startBtn = document.getElementById("start-btn");
+  
+  if (startBtn) {
+    startBtn.addEventListener("click", startGame);
+  }
+  
   submitBtn.addEventListener("click", checkAnswer);
   nextBtn.addEventListener("click", nextQuestion);
   restartBtn.addEventListener("click", restartGame);
@@ -51,50 +58,85 @@ function initGame() {
   });
 }
 
-// Function to randomize and select 10 questions
+// Initialize the game
+function initGame() {
+  initEventListeners();
+}
+
+// Function to get available songs (not used yet)
+function getAvailableSongs() {
+  return quizData.filter(song => 
+    !usedSongs.some(used => used.artist === song.artist && used.audio === song.audio)
+  );
+}
+
+// Function to randomize and select 10 questions from available pool
 function randomizeQuestions() {
-  // Create a copy of the quizData array
-  const allQuestions = [...quizData];
+  const availableSongs = getAvailableSongs();
   
-  // Fisher-Yates shuffle algorithm
-  for (let i = allQuestions.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [allQuestions[i], allQuestions[j]] = [allQuestions[j], allQuestions[i]];
+  // Check if we have enough songs
+  if (availableSongs.length < 10) {
+    return null; // Not enough songs
   }
-  
-  // Select first 10 questions (or all if there are fewer than 10)
-  randomizedQuestions = allQuestions.slice(0, 10);
+
+  // Fisher-Yates shuffle algorithm on available songs
+  const shuffledSongs = [...availableSongs];
+  for (let i = shuffledSongs.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledSongs[i], shuffledSongs[j]] = [shuffledSongs[j], shuffledSongs[i]];
+  }
+
+  // Select first 10 songs and mark them as used
+  randomizedQuestions = shuffledSongs.slice(0, 10);
+  usedSongs.push(...randomizedQuestions);
   
   return randomizedQuestions;
 }
 
-// Alternative implementation using a while loop
-/*
-function randomizeQuestions() {
-  // Create a copy of the quizData array
-  const allQuestions = [...quizData];
-  randomizedQuestions = [];
+// Show message when all songs are played
+function showAllSongsPlayedMessage() {
+  // Hide all screens first
+  startScreen.style.display = "none";
+  gameScreen.style.display = "none";
+  feedbackScreen.style.display = "none";
+  resultsScreen.style.display = "none";
+
+  const messageElement = document.createElement('div');
+  messageElement.className = 'all-songs-message';
+  messageElement.innerHTML = `
+    <h2>Песни закончились</h2>
+    <p>Вы можете отыграть их заново.</p>
+    <button id="play-again-btn" class="btn">Играть снова</button>
+  `;
   
-  // Select 10 random questions without duplicates
-  while (randomizedQuestions.length < 10 && allQuestions.length > 0) {
-    // Get a random index from the remaining questions
-    const randomIndex = Math.floor(Math.random() * allQuestions.length);
-    
-    // Add the randomly selected question to our array
-    randomizedQuestions.push(allQuestions[randomIndex]);
-    
-    // Remove the selected question from the pool
-    allQuestions.splice(randomIndex, 1);
-  }
+  startScreen.innerHTML = '';
+  startScreen.appendChild(messageElement);
+  startScreen.style.display = 'block';
   
-  return randomizedQuestions;
+  document.getElementById('play-again-btn').addEventListener('click', function() {
+    usedSongs = []; // Reset the used songs array
+    // Reset to original start screen
+    startScreen.innerHTML = `
+      <h2>Угадайте исполнителя по песне</h2>
+      <p>Вам будут проигрываться песни, и вы должны угадать исполнителя.</p>
+      <p>У вас есть время длительности песни + 20 секунд на каждый вопрос и 3 попытки.</p>
+      <button id="start-btn" class="btn">Начать викторину</button>
+    `;
+    // Re-initialize event listeners for the new button
+    initEventListeners();
+  });
 }
-*/
 
 // Start the game
 function startGame() {
   // Randomize and select 10 questions before starting
-  randomizeQuestions();
+  const questions = randomizeQuestions();
+  
+  if (!questions) {
+    showAllSongsPlayedMessage();
+    return;
+  }
+  
   currentQuestionIndex = 0;
   score = 0;
   scoreDisplay.textContent = score;
@@ -225,7 +267,7 @@ function showFeedback(isCorrect, message) {
 
 // Show hint
 function showHint() {
-  alert(`Hint: ${randomizedQuestions[currentQuestionIndex].hint}`);
+  alert(`Подсказка: ${randomizedQuestions[currentQuestionIndex].hint}`);
   hintBtn.style.visibility = "hidden";
 }
 
@@ -242,9 +284,15 @@ function nextQuestion() {
 
 // Show results
 function showResults() {
-  showScreen(resultsScreen);
-  finalScoreDisplay.textContent = score;
-  totalQuestionsDisplay.textContent = randomizedQuestions.length;
+  // Check if we have enough songs for another game
+  const availableSongs = getAvailableSongs();
+  if (availableSongs.length < 10) {
+    showAllSongsPlayedMessage();
+  } else {
+    showScreen(resultsScreen);
+    finalScoreDisplay.textContent = score;
+    totalQuestionsDisplay.textContent = randomizedQuestions.length;
+  }
 }
 
 // Restart game
@@ -252,7 +300,14 @@ function restartGame() {
   currentQuestionIndex = 0;
   score = 0;
   scoreDisplay.textContent = score;
-  showScreen(startScreen);
+  
+  // Check if we have enough songs for another game
+  const availableSongs = getAvailableSongs();
+  if (availableSongs.length < 10) {
+    showAllSongsPlayedMessage();
+  } else {
+    showScreen(startScreen);
+  }
 }
 
 // Show a specific screen
